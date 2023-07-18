@@ -10,7 +10,7 @@ app.use(express.urlencoded({ extended: true }));
 // Middleware to serve up static assets from the public folder
 app.use(express.static('public'));
 
-const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
+const { readFromFile, readAndAppend } = require('./helpers/fsUtilis');
 
 app.get('/notes',(req, res)=> {
     res.sendFile(path.join(__dirname,'notes.html'));
