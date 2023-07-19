@@ -3,6 +3,8 @@ const path = require('path');
 const PORT = 3001;
 const app = express();
 
+const uuid = require('./helpers/uuid');
+
 // Middleware for parsing JSON and urlencoded form data
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,22 +20,22 @@ app.get('/api/notes', (req, res) => {
   readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
-
 app.post('/api/notes', (req, res) => {
   // Log that a POST request was received
   console.info(`${req.method} request received to save notes`);
 
   // Destructuring assignment for the items in req.body
-  const { noteTitile, noteText } = req.body;
+  const { title, text } = req.body;
   console.log('body: ', req.body);
 
-  console.log(noteTitile, noteText)
+  console.log(title, text)
   // If all the required properties are present
-  if (noteTitile && noteText) {
+  if (title && text) {
     // Variable for the object we will save
     const newNote = {
-      title: noteTitile.value,
-      text: noteText.value,
+      title: title,
+      text: text,
+      id: uuid(),
     };
 
     readAndAppend(newNote, './db/db.json');
