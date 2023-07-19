@@ -12,18 +12,10 @@ app.use(express.static('public'));
 
 const { readFromFile, readAndAppend } = require('./helpers/fsUtilis');
 
-app.get('/notes', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/notes.html'));
-})
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'));
-})
-
-
 app.get('/api/notes', (req, res) => {
   console.info(`${req.method} request received to read notes`);
 
-  readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)));
+  readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
 });
 
 
@@ -56,6 +48,13 @@ app.post('/api/notes', (req, res) => {
     res.json('Error in saving notes');
   }
 });
+
+app.get('/notes', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/notes.html'));
+})
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'));
+})
 
 app.listen(PORT, () =>
   console.log(`App listening at http://localhost:${PORT}`)
