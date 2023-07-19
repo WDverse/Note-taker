@@ -20,27 +20,28 @@ app.get('*', (req, res) => {
 })
 
 
-app.get('/', (req, res) => {
-  console.info(`${req.method} request received for notes`);
+app.get('/api/notes', (req, res) => {
+  console.info(`${req.method} request received to read notes`);
 
   readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)));
 });
 
 
-app.post('/', (req, res) => {
+app.post('/api/notes', (req, res) => {
   // Log that a POST request was received
-  console.info(`${req.method} request received to submit notes`);
+  console.info(`${req.method} request received to save notes`);
 
   // Destructuring assignment for the items in req.body
   const { noteTitile, noteText } = req.body;
+  console.log('body: ', req.body);
 
+  console.log(noteTitile, noteText)
   // If all the required properties are present
   if (noteTitile && noteText) {
     // Variable for the object we will save
     const newNote = {
-      noteTitile,
-      noteText,
-      notes_id: uuid(),
+      title: noteTitle.value,
+      text: noteText.value,
     };
 
     readAndAppend(newNote, './db/notes.json');
