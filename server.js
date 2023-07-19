@@ -32,11 +32,11 @@ app.post('/api/notes', (req, res) => {
   if (noteTitile && noteText) {
     // Variable for the object we will save
     const newNote = {
-      title: noteTitle.value,
+      title: noteTitile.value,
       text: noteText.value,
     };
 
-    readAndAppend(newNote, './db/notes.json');
+    readAndAppend(newNote, './db/db.json');
 
     const response = {
       status: 'success',
