@@ -50,5 +50,5 @@ N/A
 ## Tests
 
 
-Here is the link to the webpage:
+Here is the link to the web application:
 [Note Taker](https://wdverse.github.io/Note-taker/)
