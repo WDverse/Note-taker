@@ -51,4 +51,4 @@ N/A
 
 
 Here is the link to the web application:
-[Note Taker](https://wdverse.github.io/Note-taker/)
+[Note Taker](https://my-quick-note-bc48bbc27ea1.herokuapp.com/notes)
