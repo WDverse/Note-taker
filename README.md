@@ -37,9 +37,7 @@ Webpage when viewing saved note
 
 ## Credits
 
-
-N/A
-
+Starter code was provided by Bootcamp instructors. The project benefited from collaboration with AskBCS tutors.
 
 ## License
 
