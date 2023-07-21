@@ -49,4 +49,4 @@ N/A
 
 
 Here is the link to the web application:
-[Note Taker](https://my-quick-note-bc48bbc27ea1.herokuapp.com/notes)
+[Note Taker](https://my-quick-note-bc48bbc27ea1.herokuapp.com/)
